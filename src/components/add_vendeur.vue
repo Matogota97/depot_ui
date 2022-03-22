@@ -81,25 +81,48 @@ export default {
             data.append("adresse", this.adresse);
             data.append("telephone", this.telephone);
             data.append("cni", this.cni);
-            if(!edit){
-               axios.post(this.url + "/vendeur/",data,this.headers)
-            .then(()=>{
-            this.$store.state.notification = {
-                type: "success",
-                message: "vendeur ajouter avec succes!"
+            if(!this.edit){
+                axios.post(this.url + "/vendeur/",data,this.headers)
+                .then(()=>{
+                this.$store.state.notification = {
+                    type : "success",
+                    message : "Vendeur ajouter avec succes"
                 }
+                this.$emit('update')
+                this.$emit('close')
             })
-            .catch(error => {
-                if(error.response.status == 401 || error.response.status == 403){
-                    this.refreshToken(this.soumettre)
-                }else
+            .catch((error)=>{
+                console.log(error)
+            })
+            }else {
+                axios.patch(this.url + "/vendeur/" + this.$store.state.vendeur_courant.id + '/',data,this.headers)
+                .then(()=>{
+                    this.$store.state.notification = {
+                        type: "success",
+                        message: "Informations modifies avec succes!"
+                    }
+                    this.$emit('update')
+                    this.$emit('close')
+                })
+                .catch((error)=>{
                     console.log(error)
                 })
-            
-            } 
             }
-            
-        },  
+
+        },
+    },
+    mounted(){
+        if(this.edit){
+            this.title = "Modifier Venduer"
+            this.btn="Modifier"
+            this.username = this.$store.state.vendeur_courant.user.username
+            this.first_name = this.$store.state.vendeur_courant.user.first_name
+            this.last_name = this.$store.state.vendeur_courant.user.last_name
+            //this.password = this.$store.state.vendeur_courant.user.password
+            this.adresse = this.$store.state.vendeur_courant.adresse
+            this.telephone = this.$store.state.vendeur_courant.telephone
+        }
+    },     
 };
 </script>
 
