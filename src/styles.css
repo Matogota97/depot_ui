@@ -1,0 +1,255 @@
+:root {
+    --primary: #2b6777;
+    --secondary: #c8d8e4;
+    --white: #ffffff;
+    --grey: #dddddd;
+    --third: #52ab98;
+    --black: #222222;
+    --red: #FF0B2A;
+    --blue: #008cba;
+    --green: #4caf50;
+    --yellow: #ffb600;
+    --white-pearl: #f5f5f5;
+    --light-grey: #cccccc;
+    --hard-grey: #808080;
+}
+b{
+    color: var(--blue);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html, body {
+    min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+.todo{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-height: 20px;
+    align-items: baseline;
+    margin-right: 10px;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.sidemenu {
+  flex: 5%;
+  width: 100%;
+}
+.principal{
+  flex: 95%;
+  width:100%;
+  margin-top: 40px;
+  margin-left: 165px;
+  padding-right:20px;
+
+}
+.btn-table{
+    cursor: pointer;
+    padding:2px 4px;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color:white;
+    margin-right: 6px;
+    font-family: 'Open Sans', sans-serif;
+}
+.btn-danger{
+  cursor: pointer;
+    padding:2px 4px;
+    background: red;
+    color:white;
+    margin-right: 6px;
+    font-family: 'Open Sans', sans-serif;  
+}
+.button{
+    float: right;
+    padding: 6px 12px;
+    margin-bottom: 6px;
+    color: white;
+    background:linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    cursor: pointer;
+}
+.bt-save{
+    cursor: pointer;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color: var(--white);
+    font-size: 15px;
+    padding: 6px 18px;
+}
+/*table style*/
+.table {
+	margin: auto;
+	margin-bottom: 20px;
+	margin-left: 50px;
+}
+.table table {
+	min-width: 100%;
+	border-collapse: collapse;
+    overflow: hidden;
+    font-size: .9em;
+}
+.table thead tr {
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color: var(--white);
+}
+.table thead tr th {
+    font-weight: 500;
+	border-right: 1px solid white;
+	border-left: none;
+}
+.table th, .table td {
+	text-align: left;
+	padding: 12px 15px;
+	border-right: 1px solid white;
+}
+.table td {
+    font-size: 15px;
+}
+.table tbody tr {
+    font-weight: 400;
+    background: var(--white-pearl);
+    border: 1px solid var(--light-grey);
+}
+.table tbody tr:hover .nom {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.table .action {
+    text-align: center;
+}
+.table .act {
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+}
+.table .act > * {
+    margin-right: 10px;
+}
+.table .act .mdi:last-child {
+    margin-right: 0;
+}
+.table .act .mdi-square-edit-outline {
+    color: var(--blue);
+}
+.table .act .mdi-delete {
+    color: var(--red);
+}
+.table .act .mdi-check {
+    color: var(--green);
+}
+
+.animate__delay-1-5s {
+    animation-delay: 1.5s;
+}
+
+.grid-header{
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.card-body .mdi {
+	color: var(--bg-secondary)
+}
+
+@media screen and (max-width: 576px) {
+    .principal {
+      padding: 18px 20px;
+    }
+}
+
+.content {
+    padding: 15px 20px;
+}
+.form-group {
+    margin-bottom: 8px;
+}
+.form-group > * {
+    display: block;
+    width: 100%;
+}
+label {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 3px;
+}
+input, select {
+    outline: none;
+    border: 1px solid var(--black);
+    padding: 5px 12px;
+    border-radius: 5px;
+    color: var(--black);
+}
+.btn {
+    cursor: pointer;
+    text-align: center;
+    background: var(--bg-secondary);
+
+}
+.btn-save {
+    cursor: pointer;
+    background: var(--black);
+    color: var(--white);
+    font-size: 15px;
+    padding: 9px 22px;
+    border-radius: 10px;
+}
+.add-btn{
+    cursor: pointer;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 15px;
+    padding: 5px 5px;
+    border-radius: 10px;
+    float:right;
+
+}
+.file{
+    outline: none;
+    border: 1px solid var(--black);
+    padding: 10px 12px;
+    color: var(--black);
+    margin : 15px; min-width: 250px;
+}
+.filter{
+  width: 80%;
+  outline: none;
+  border: 1px solid var(--black);
+  padding: 0;
+  border-radius: 5px;
+  color: var(--black);
+  margin-bottom: 5px;
+}
+.search{
+  outline: none;
+  border: 1px solid var(--black);
+  padding: 5px 5px;
+  border-radius: 10px;
+  color: var(--black);
+}
+.totals{
+  font-size: 24px; 
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 20px;
+}
+
+.previous {
+    cursor: pointer;
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+    cursor: pointer;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.left{
+    text-align: left!important;
+}
