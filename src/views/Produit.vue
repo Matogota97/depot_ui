@@ -1,8 +1,8 @@
 <template>
     <div>
         <title-bar :title='title'/>
-        <button @click="ajouter" class="bt">Ajouter</button>
-        <add-produits v-if="dialog" @close="close"/>
+        <button @click="ajouter" class="button">Ajouter</button>
+        <add-produits :edit="edit" v-if="dialog" @close="close"/>
    <div class="table">
         <table>
             <thead>
@@ -24,7 +24,8 @@
                     <td class="nom">{{produit.date_expiration}}</td>
                     <td class="act">
                         <div class="btncl">
-                        <button class="btniveau2" @click="supprimerElement(cl)">Supprimer</button>   
+                        <button class="btn-table" @click="supprimerElement(produit)">Supprimer</button>   
+                        <button class="btn-table" @click="modifierElement(produit)">Modifier</button>   
                         </div>
                     </td>
                 </tr>
@@ -77,14 +78,20 @@ export default {
                     console.log(error)
                 })
         },
+        modifierElement(produit){
+            this.dialog = true
+            this.edit = true
+            this.$store.state.produit_courant = produit
+
+        },
         supprimerElement(indice){
             let confirme = confirm("Voulez-vous vraiment supprimer?")
             if(confirme){
-                axios.delete(this.url+`/produit/${indice.id}/`)
+                axios.delete(this.url+`/produit/${indice.id}/`,this.headers)
                 .then(()=>{
                     this.$store.state.notification = {
                         type: "success",
-                        message: "produit supprime avec succes!"
+                        message: "Produit supprime avec succes!"
                     }
                     this.getProduit()
                 })
@@ -94,14 +101,14 @@ export default {
                 }else
                     this.$store.state.notification = {
                         type: "danger",
-                        message: "produit ne peut pas etre supprimer!"
+                        message: "Produit ne peut pas etre supprimer!"
                     }
                         })
             }
+        }
         },
     mounted(){
         this.getProduit()
-    },
 } 
 }  
 </script>

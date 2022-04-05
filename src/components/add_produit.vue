@@ -24,7 +24,7 @@
                     <input v-model="date_expiration" type="date">
                 </div>
                 <div class="btn-wrap">
-                    <button class="btn btn-save" @click="soumettre"></button>
+                    <button class="bt-save" @click="soumettre">{{btn}}</button>
                 </div>
             </div>
         </div>
@@ -43,6 +43,7 @@ export default {
         notification,
         dialogLayout
     },
+    props:['edit'],
     data(){
         return{ 
             title: 'Ajouter un produit',
@@ -51,6 +52,7 @@ export default {
             prix_unitaire: "",
             date_fabrication:"",
             date_expiration:"",
+            btn:"Soumettre"
                 
         }
     },
@@ -63,22 +65,62 @@ export default {
             data.append("date_fabrication", this.date_fabrication);
             data.append("date_expiration", this.date_expiration);
             
-            axios.post(this.url + "/produit/",data,this.headers)
-            .then(()=>{
-            this.$store.state.notification = {
-                type: "success",
-                message: "produit ajouter avec succes!"
-                }
-            })
-            .catch(error => {
-                if(error.response.status == 401 || error.response.status == 403){
-                    this.refreshToken(this.soumettre)
-                }else
-                    console.log(error)
+            if(this.nom_produit == ""||this.quantite == ""||this.prix_unitaire == ""||this.date_fabrication=="" || this.date_expiration==""){
+                this.$store.state.notification = {
+                        type: "danger",
+                        message: "Veuillez completer tous les champs"
+                    }
+            }
+            else if (!this.edit){
+                axios.post(this.url + "/produit/",data,this.headers)
+                .then(()=>{
+                    this.$emit('update')
+                    this.$emit('close',{'type':'success','message':'Informations soumises avec succes!'})
+                    this.nom_produit = ""
+                    this.quantite = ""
+                    this.prix_unitaire = ""
+                    this.date_fabrication = ""
+                    this.date_expiration = ""
                 })
+                .catch(error => {
+                    if(error.response.status == 401 || error.response.status == 403){
+                        this.refreshToken(this.soumettre)
+                    }else
+                        console.log(error)
+                    })
+               
+                }
+            else{
+                axios.patch(this.url + "/produit/" + this.$store.state.produit_courant.id + '/',data,this.headers)
+                .then(()=>{
+                    this.$store.state.notification = {
+                        type: "success",
+                        message: "Produit modifie avec succes!"
+                    }
+                    this.$emit('update')
+                    this.$emit('close')
+                })
+                .catch(error => {
+                    if(error.response.status == 401 || error.response.status == 403){
+                        this.refreshToken(this.soumettre)
+                    }else
+                         console.log(error)
+                        })
+            }
             
             }
-        },  
+        },
+        mounted(){
+            if (this.edit) {
+                this.nom_produit = this.$store.state.produit_courant.nom_produit
+                this.quantite = this.$store.state.produit_courant.quantite
+                this.prix_unitaire = this.$store.state.produit_courant.prix_unitaire
+                this.date_fabrication = this.$store.state.produit_courant.date_fabrication
+                this.date_expiration = this.$store.state.produit_courant.date_expiration
+                this.title = "Modifier le produit"
+                this.btn = "Modifier"
+            }
+        }  
 };
 </script>
 
