@@ -4,6 +4,8 @@ import VueRouter from "vue-router";
 import Clients from '../views/Client.vue'
 import Vendeurs from '../views/Vendeur.vue'
 import Produits from '../views/Produit.vue'
+import Stocks from '../views/Stock.vue'
+import Ventes from '../views/Vente.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -11,6 +13,8 @@ const routes = [
 	{path:'/client', name:"client",component:Clients},
 	{path:'/vendeur', name:"vendeur",component:Vendeurs},
 	{path:'/produit', name:"produit",component:Produits},
+	{path:'/stock', name:"stock",component:Stocks},
+	{path:'/vente', name:"vente",component:Ventes},
 ]
 
 const router = new VueRouter({

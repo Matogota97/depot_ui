@@ -1,11 +1,37 @@
 <template>
- <div class="sidebar">
+	<div class="sidebar">
 		<ul>
-			<li @click="vendeur_link"><a href=""><i class="mdi mdi-account"></i> Vendeur</a></li>
-			<li @click="produit_link"><a href=""><i class="mdi mdi-account"></i> Produit</a></li>
-			<li @click="stock_link"><a href=""><i class="mdi mdi-account"></i> Stock</a></li>
-			<li @click="client_link"><a href=""><i class="mdi mdi-account"></i> Client</a></li>
-			<li @click="vente_link"><a href=""><i class="mdi mdi-cart"></i> Vente</a></li>
+			<li active-link="active">
+				<router-link to="/vendeur">
+					<i class="mdi mdi-account"></i>
+					Vendeur
+				</router-link>
+			</li>
+
+			<li active-link="active">
+				<router-link to="/produit">	
+					<i class="mdi mdi-account"></i> 
+					Produit
+				</router-link>
+			</li>
+			<li active-link="link">
+				<router-link to="/stock">
+					<i class="mdi mdi-account"></i>
+					Stock
+				</router-link>
+			</li>
+			<li active-link="active">
+				<router-link to="/client">
+					<i class="mdi mdi-account"></i>
+					Client
+				</router-link>
+			</li>
+			<li active-link="active">
+				<router-link to="/vente">
+					<i class="mdi mdi-cart"></i>
+					Vente
+				</router-link>
+			</li>
 			<li @click="logout"><a href=""><i class="mdi mdi-logout"></i> Logout</a></li>
 		</ul>
 	</div>

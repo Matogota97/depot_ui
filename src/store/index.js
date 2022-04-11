@@ -10,6 +10,7 @@ export default new Vuex.Store({
             groups: null,
             client_courant:{},
             vendeur_courant:{},
-            produit_courant:{}
+            produit_courant:{},
+            carts:{}
         }
 })

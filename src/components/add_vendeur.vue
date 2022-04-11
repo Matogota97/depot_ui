@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Password</label>
-                    <input v-model="password" type="text">
+                    <input v-model="password" type="password">
                 </div>
                 <div class="form-group">
                     <label for="">CNI</label>
