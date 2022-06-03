@@ -10,8 +10,6 @@
                     <th>Nom Produit</th>
                     <th>Quantite</th>
                     <th>Prix Unitaire</th>
-                    <th>Date F</th>
-                    <th>Date E</th>
                     <th class="action">Actions</th>
                 </tr>
             </thead>
@@ -20,8 +18,6 @@
                     <td class="nom">{{produit.nom_produit}}</td>
                     <td class="nom">{{produit.quantite}}</td>
                     <td class="nom">{{produit.prix_unitaire}}</td>
-                    <td class="nom">{{produit.date_fabrication}}</td>
-                    <td class="nom">{{produit.date_expiration}}</td>
                     <td class="act">
                         <div class="btncl">
                         <button class="btn-table" @click="supprimerElement(produit)">Supprimer</button>   

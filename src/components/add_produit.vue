@@ -15,14 +15,6 @@
                     <label for="">Prix Unitaire</label>
                     <input v-model="prix_unitaire" type="text">
                 </div>
-                <div class="form-group">
-                    <label for="">Date Fabrication</label>
-                    <input v-model="date_fabrication" type="date">
-                </div>
-                <div class="form-group">
-                    <label for="">Date Expiration</label>
-                    <input v-model="date_expiration" type="date">
-                </div>
                 <div class="btn-wrap">
                     <button class="bt-save" @click="soumettre">{{btn}}</button>
                 </div>
@@ -50,8 +42,6 @@ export default {
             nom_produit:"" ,
             quantite: "",
             prix_unitaire: "",
-            date_fabrication:"",
-            date_expiration:"",
             btn:"Soumettre"
                 
         }
@@ -62,8 +52,6 @@ export default {
             data.append("nom_produit", this.nom_produit);
             data.append("quantite", this.quantite);
             data.append("prix_unitaire", this.prix_unitaire);
-            data.append("date_fabrication", this.date_fabrication);
-            data.append("date_expiration", this.date_expiration);
             
             if(this.nom_produit == ""||this.quantite == ""||this.prix_unitaire == ""||this.date_fabrication=="" || this.date_expiration==""){
                 this.$store.state.notification = {
@@ -79,8 +67,6 @@ export default {
                     this.nom_produit = ""
                     this.quantite = ""
                     this.prix_unitaire = ""
-                    this.date_fabrication = ""
-                    this.date_expiration = ""
                 })
                 .catch(error => {
                     if(error.response.status == 401 || error.response.status == 403){
@@ -115,8 +101,6 @@ export default {
                 this.nom_produit = this.$store.state.produit_courant.nom_produit
                 this.quantite = this.$store.state.produit_courant.quantite
                 this.prix_unitaire = this.$store.state.produit_courant.prix_unitaire
-                this.date_fabrication = this.$store.state.produit_courant.date_fabrication
-                this.date_expiration = this.$store.state.produit_courant.date_expiration
                 this.title = "Modifier le produit"
                 this.btn = "Modifier"
             }
