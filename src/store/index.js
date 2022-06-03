@@ -11,7 +11,7 @@ export default new Vuex.Store({
 			client_courant:{},
 			vendeur_courant:{},
 			produit_courant:{},
-			carts:[],
+			cart:{prix_total:0,reste:0,commande:[]},
 			products:[]
 		}
 })

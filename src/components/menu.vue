@@ -7,7 +7,6 @@
 					Vendeur
 				</router-link>
 			</li>
-
 			<li active-link="active">
 				<router-link to="/produit">	
 					<i class="mdi mdi-account"></i> 
