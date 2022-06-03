@@ -24,6 +24,7 @@ b{
 html, body {
     min-height: 100vh;
     font-family: 'Open Sans', sans-serif;
+
 }
 .todo{
     display: flex;
@@ -34,20 +35,22 @@ html, body {
     margin-right: 10px;
 }
 .row{
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+  /* display: flex;
+  flex-wrap: wrap; */
+  width:calc(100% - 195px);
+  left: 195px;
+  position: absolute;
 }
-.sidemenu {
+/* .sidemenu {
   flex: 5%;
   width: 100%;
-}
+} */
 .principal{
-  flex: 95%;
-  width:100%;
-  margin-top: 40px;
+  /* flex: 95%; */
+  /* margin-top: 40px;
   margin-left: 165px;
-  padding-right:20px;
+  padding-right:20px; */
+    width: 100%;
 
 }
 .btn-table{
