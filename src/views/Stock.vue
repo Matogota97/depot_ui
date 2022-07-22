@@ -8,6 +8,7 @@
                     <th>Nom Produit</th>
                     <th>Entrees</th>
                     <th>Sorties</th>
+                    <th>Quantite Restante</th>
                     <th>Date Entrees</th>
                     <th>Date Sorties</th>
                     <th class="action">Actions</th>
@@ -17,6 +18,7 @@
                 <tr v-for=" stock in listStock" :key="stock.id">
                     <td class="nom">{{stock.produit.nom_produit}}</td>
                     <td class="nom">{{stock.entrees}}</td>
+                    <td class="nom">{{stock.sorties}}</td>
                     <td class="nom">{{stock.quantite_restante}}</td>
                     <td class="nom">{{stock.date_entree}}</td>
                     <td class="nom">{{stock.date_sortie}}</td>
