@@ -7,6 +7,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Code</th>
                     <th>UserName</th>
                     <th>Nom</th>
                     <th>Prenom</th>
@@ -18,6 +19,7 @@
             </thead>
             <tbody>
                 <tr v-for=" vendeur in listVendeurs" :key="vendeur.id">
+                    <td class="nom">{{vendeur.code}}</td>
                     <td class="nom">{{vendeur.user.username}}</td>
                     <td class="nom">{{vendeur.user.first_name}}</td>
                     <td class="nom">{{vendeur.user.last_name}}</td>
