@@ -52,7 +52,7 @@
 									<table>
 											<tbody>
 												<tr>
-													<td class="lib" >Prix Totals : </td>
+													<td class="lib" >Prix Total : </td>
 													<td class="amount">{{$store.state.cart.prix_total}} Fbu</td>
 												</tr>
 												<tr class="line"></tr>
