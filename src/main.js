@@ -4,6 +4,9 @@ import store from './store/index'
 import router from'./routers/router'
 import '@mdi/font/css/materialdesignicons.min.css'
 import axios from 'axios'
+import excel from 'vue-excel-export'
+ 
+Vue.use(excel)
 Vue.config.productionTip = false
 Vue.mixin({
     methods:{

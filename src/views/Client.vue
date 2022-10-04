@@ -1,9 +1,24 @@
 <template>
     <div>
         <title-bar :title='title'/>
-        <button @click="ajouter" class="button">Ajouter</button>
-        <add-clients :edit="edit" @ update="getClient" v-if="dialog" @close="close"></add-clients>
-        <detail-client  v-if="dialog_client" @close="close"></detail-client>
+        <div class="container">
+        <div class="btn">
+            <button @click="ajouter" class="button">Ajouter</button>
+        </div>
+        <div class="excel">    
+        <export-excel
+            class="btn-excel"
+            :data   = "listclients"
+            :fields = "excel_fields"
+            name    = "Liste des clients.xls"
+            >
+            Fichier excel
+            <i class="mdi mdi-download"></i>
+        </export-excel>
+        </div>
+        </div>
+        <add-clients :edit="edit" @update="getClient" v-if="dialog" @close="close"></add-clients>
+        <detail-client  v-if="dialog_client" @close="close"></detail-client> 
    <div class="table">
         <table>
             <thead>
@@ -54,7 +69,13 @@ export default {
             dialog: false,
             listclients:[],
             edit:false,
-            dialog_client:false
+            dialog_client:false,
+            excel_fields:{
+                'Nom':'nom',
+                'Prenom':'prenom',
+                'Adresse':'adresse',
+                'Telephone':'telephone'
+            }
         }
     },
     methods: {
@@ -124,5 +145,25 @@ export default {
 </script>
 
 <style scoped="">
-    
+    .container{
+        display:flex;
+        justify-content:space-between
+    }
+    .btn{
+        margin-left:80%;
+    }
+    .excel{
+        margin:0px 10px 10px 0px;
+    }
+    .btn-excel{
+        padding:6px 12px;
+        border:1px solid black;
+        background:linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+        color:white;
+    }
+    .button{
+        padding:8px 16px;
+        background:linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    }
+
 </style>

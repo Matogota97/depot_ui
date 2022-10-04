@@ -52,5 +52,14 @@ import axios from 'axios'
 .items{
 	font-family: 'Open Sans', sans-serif;
 	line-height:30px;
+}
+.details{
+	width:70%;
+	border:1px solid black;
+	margin-left:120px;
+	margin-bottom:20px;
+	padding:40px;
+	background:linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+	color:white;
 }	
 </style>

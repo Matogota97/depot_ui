@@ -262,6 +262,7 @@ table hr {
 	margin-top: 20px;
 	margin-right: 10px;
 	border: 1px solid black;
+	
 }
 .card-icon{
 	text-align: center;
